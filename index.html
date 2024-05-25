@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fylo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      :root{
+        --leftmargin: 10vw;
+      }
+      @media only screen and (max-width:400px){
+        html body main{
+          grid-template-rows: 250dvw 150px 70rem 60dvh 100dvh;
+        }
+        
+      }
+      @media only screen and (max-width: 900px) {
+        /*nav*/
+        header nav {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          height: 100px;
+        }
+        nav .logo {
+          font-weight: bolder;
+          position: absolute;
+          left: 5vw;
+          display: flex;
+          align-items: center;
+          font-size: 2rem;
+        }
+        nav .logo img {
+          width: 2.5rem;
+          margin-right: 5px;
+        }
+        .menu {
+          display: flex;
+          align-items: center;
+        }
+        .options {
+          color: rgb(93, 93, 93);
+          margin-right: 5vw;
+        }
+
+
+        html main{
+          display: grid;
+          grid-template-rows: 180dvw 150px 100rem 60dvh 100dvh;
+        }
+        /*block1*/
+        main .block1{
+          display: grid;
+          align-self: start;
+          justify-content: center;
+          grid-template-rows:100dvw 80dvw;
+          grid-template-columns: none;
+        }
+        main .block1  img{
+          display: grid;
+          width: 100dvw;
+          grid-row: 1/2;
+          grid-column: 1/2;
+        }
+        .block1 .signinbox{
+          margin-left: 7dvw;
+          width: 90dvw;
+          grid-row: 2/3;
+          text-align: center;
+        }
+        .signinbox .signbox-item{
+          width: 90dvw;
+        }
+
+        .signinbox .signbox-item .stm1{
+          line-height: 1.3;
+          font-size: 30px;
+          font-weight: bolder;
+          margin-bottom: 20px;
+        }
+        .signinbox .signbox-item .stm2{
+          line-height: 1.2;
+          font-size: 20px;
+        }
+        .signinbox .signbox-item input{
+          padding-left: 10px;
+          width: 80dvw;
+          height: 40px;
+          margin-bottom: 10px;
+        }
+        .signinbox .signbox-item button{
+          background-color: rgb(74, 103, 230);
+          border: 0;
+          color: white;
+          font-size: 20px;
+          font-weight: bold;
+          border-radius: 5px;
+          width: 85dvw;
+          height: 40px;
+        }
+/*top-curve*/
+        main .top-curve{
+          height: 150px;
+          width: 100vw;
+        }
+
+
+/*block2*/
+        main .block2{
+          background-color: rgba(249,248,254,255);
+          display: grid;
+          grid-template-rows:100dvw 80dvw;
+          grid-template-columns: none;
+          width: 100vw;
+        }
+
+        main .block2  img{
+          display: grid;
+          width: 100vw;
+          grid-row: 1/2;
+          grid-column: 1/3;
+        }
+
+        .block2 .about{
+          grid-row: 2/3;
+          grid-column: 1/3;
+          text-align: center;
+          width: 100dvw;
+        }
+        .about .aboutbox{
+          margin-left: 7dvw;
+          width: 90dvw;
+        }
+        .aboutbox .quote{
+          font-size: 30px;
+          font-weight: bolder;
+          margin-bottom: 20px;
+        }
+
+        .aboutbox .info{
+          color: rgb(113, 113, 113);
+          line-height: 1.2;
+          font-size: 20px;
+          margin-bottom: 20px;
+        }
+
+        .about .aboutbox  a{
+          color: rgb(57, 169, 143);
+          text-decoration: underline;
+          line-height: 3;
+        }
+        .aboutbox .testimonial-card {
+          box-shadow: 0px 0px 10px 1px rgb(188, 188, 188);
+          background-color: white;
+          border-radius: 8px;
+          padding: 20px;
+          max-width: 350px;
+          margin: auto;
+          font-family: Arial, sans-serif;
+        }
+        .testimonial-card .testimonial-author{
+          width: 10px;
+        }
+        /*block3*/
+      main .get{
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: 1fr 3fr;
+        height: 60dvh;
+        grid-row: 4/5;
+        background-color: rgba(87,89,137,255);
+        width: 100vw;
+      }
+
+      .get .get-early{
+        display: flex;
+        grid-row: 1/2;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100vw;
+      }
+      .get-early .get-early-access{
+       margin-left: 150px;
+       width: 80vw;
+      }
+      .get-early .get-early-access .title{
+        font-size: 30px;
+        color: white;
+      }
+      .get-early .get-early-access .statement{
+        margin-top: 20px;
+        color: white;
+      }
+      main .get form{
+        display: flex;
+        grid-row: 2/3;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        width: 100vw;
+      }
+      main .get form input{
+        border-radius: 3px;
+        border: 0;
+        padding-left: 15px;
+        height: 50px;
+        width: 70vw;
+        transition: border-color 0.3s, background-color 0.3s;
+      }
+
+      main .get form button{
+        border: 0;
+        border-radius: 3px;
+        background-color: rgba(52, 116, 225, 0.852);
+        white-space: nowrap;
+        height: 50px;
+        color: white;
+        width: 200px;
+      }
+      body .footer{
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: 3fr 3fr 3fr 1fr;
+        height: 150dvh;
+        background-color: rgba(7,4,59,255);
+        width: 100vw;
+        color: white;
+      }
+      .items{
+        color: white;
+        grid-row: 1/2;
+      }
+      .item2{
+        grid-row: 2/3;
+      }
+      .item3{
+        grid-row: 3/4;
+      }
+      .item4{
+        grid-row: 4/5;
+      }
+      .footer .contents{
+        color: white;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+    }
+
+
+
+      main{
+        display: grid;
+        grid-template-rows: 80dvh 150px 100dvh 40dvh;
+      }
+      /*nav*/
+      nav {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 150px;
+      }
+      .logo {
+        font-weight: bolder;
+        position: absolute;
+        left: var(--leftmargin);
+        display: flex;
+        align-items: center;
+        font-size: 3.125rem;
+      }
+      .logo img {
+        width: 80px;
+        margin-right: 5px;
+      }
+      .menu {
+        display: flex;
+        align-items: center;
+      }
+      .options {
+        color: rgb(93, 93, 93);
+        margin-right: 5vw;
+      }
+
+      /*block 1*/
+      .block1{
+        display: grid;
+        grid-template-columns: 50vw 50vw;
+        width: 100vw;
+      }
+      .block1 img{
+        width: 40dvw;
+        grid-row: 1/2;
+        grid-column: 2/3;
+      }
+      .signinbox{
+        display: flex;
+        justify-content: center;
+        width: 50vw;
+        grid-row: 1/2;
+      }
+      .signbox-item{
+        margin: var(--leftmargin);
+      }
+       .stm1{
+        line-height: 1.3;
+        font-size: 30px;
+        font-weight: bolder;
+        margin-bottom: 20px;
+      }
+       .stm2{
+        line-height: 1.2;
+        font-size: 20px;
+      }
+      .signinbox  input{
+        padding-left: 10px;
+        width: 19dvw;
+        height: 30px;
+        margin-bottom: 10px;
+        border: 1px solid rgb(190, 190, 190);
+      }
+      .signinbox  button{
+        background-color: rgb(74, 103, 230);
+        border: 0;
+        color: white;
+        font-size: 15px;
+        border-radius: 3px;
+        width: 20dvw;
+        height: 35px;
+      }
+
+      /*top-curve*/
+      .top-curve {
+        grid-row: 2/3;
+        width: 100vw;
+        height: 150px;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,100 Q50,50 100,100" fill="rgb(248,244,244)"/></svg>') no-repeat;
+        background-size: cover;
+      }
+
+
+
+
+      /*block2*/
+      .block2{
+        width: 100vw;
+        display: grid;
+        grid-template-columns: 50vw 50vw;
+        grid-row: 3/4;
+        background-color: #f8f4f4;
+      }
+      .block2  img{
+        display: grid;
+        width: 40dvw;
+        grid-row: 1/2;
+        grid-column: 2/3;
+      }
+
+      .about{
+        grid-column: 1/2;
+
+      }
+      .aboutbox{
+        margin: var(--leftmargin);
+      }
+      .quote{
+        font-size: 30px;
+        font-weight: bolder;
+        margin-bottom: 20px;
+      }
+
+      .info{
+        color: rgb(113, 113, 113);
+        line-height: 1.2;
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+
+      .aboutbox  a{
+        color: rgb(57, 169, 143);
+        text-decoration: underline;
+        line-height: 3;
+      }
+      .testimonial-card {
+        box-shadow: 0px 0px 10px 1px rgb(219, 219, 219);
+        top: 50vh;
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 300px;
+        font-family: Arial, sans-serif;
+      }
+      .testimonial-quote {
+        text-align: left;
+        font-size: 14px;
+        color: #333333;
+      }
+
+      .quot{
+        text-align: left;
+        color: black;
+        font-size: 50px;
+      }
+      .testimonial-post{
+        text-align: left;
+      }
+      .testimonial-author {
+        text-align: left;
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
+        font-size: 12px;
+        color: #666666;
+      }
+
+      .testimonial-author img {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+      }
+
+      .testimonial-author div {
+        white-space: nowrap;
+        line-height: 1.2;
+      }
+
+      .testimonial-author div p {
+        margin: 0;
+      }
+
+      .testimonial-author div span {
+        font-weight: bold;
+      }
+/*block3*/
+      .get{
+        display: grid;
+        grid-template-columns: 50dvw 50dvw;
+        grid-row: 4/5;
+        background-color:rgba(87,89,137,255) ;
+        width: 100vw;
+      }
+
+      .get-early{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+      }
+      .get-early-access{
+        margin-left: var(--leftmargin);
+        margin-top: 80px;
+        margin-right: 150px;
+      }
+      .get-early-access .title{
+        font-size: 30px;
+        color: white;
+      }
+      .get-early-access .statement{
+        margin-top: 20px;
+        color: white;
+      }
+      .get form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 40vw;
+        gap: 15px;
+      }
+      .get form input{
+        border-radius: 3px;
+        border: 0;
+        padding-left: 15px;
+        height: 50px;
+        transition: border-color 0.3s, background-color 0.3s;
+      }
+      input::placeholder{
+        color: #bebdbd;
+      }
+      input:focus {
+        border-color: #66afe9;
+        background-color: #e6f7ff;
+        outline: none; 
+    }
+      .get form button{
+        border: 0;
+        border-radius: 3px;
+        background-color: rgba(52, 116, 225, 0.852);
+        white-space: nowrap;
+        height: 50px;
+        color: white;
+        width: 200px;
+      }
+      .footer{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        height: 40vh;
+        background-color: rgba(7,4,59,255);
+        width: 100vw;
+        color: white;
+      }
+
+      .items-block{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        margin-left: 30px;
+        margin-top: 50px;
+
+      }
+      .icon1 {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+        font-size: 20px;
+        margin: 20px;
+    }
+    .contents{
+      font-size: 11px;
+      font-weight: 10;
+      color: #aeaeae;
+      overflow: nowrap;
+    }
+    .icon-phone::before {
+        content: "\260E"; /* Unicode for phone symbol */
+    }
+    
+    .icon-email::before {
+        content: "\2709"; /* Unicode for envelope symbol */
+    }
+      .item1{
+        display: flex;
+        gap: 10px;
+        font-weight: bold;
+      }
+      .item1 img{
+        width: 50px;
+        height: 50px;
+        margin-left: 20px;
+      }
+      .item2{
+        margin-top: 130px;
+        margin-left: 50px;
+        gap: 20px;
+      }
+      .item3{
+        margin-top: 130px;
+        margin-left: 50px;
+        gap: 20px;
+      }
+      .item4{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .icon-container{
+        display: flex;
+        margin-right: 50px;
+        margin-bottom: 80px;
+        
+      }
+      .icon {
+        color: white;
+        margin: 5px;
+        font-size: 15px;
+        border: 2px solid white;
+        border-radius: 50%;
+        padding: 12px;
+        text-align: center;
+        width: 0.1px;
+        height: 0.1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .icon:hover {
+        background-color: white;
+        color: #0a0a39;
+    }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="" class="logo"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw7w-UYHq6gfs4Y0sU3pjBRjpFFLiJEyktWw9umVl-APLEKg8t" alt="" />Fylo </a>
+
+        <div class="menu">
+          <a href="" class="options features"> Features </a>
+          <a href="" class="options teams"> Teams </a>
+          <a href="" class="options signin1"> Sign In </a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="block1">
+        
+          <img src="https://raw.githubusercontent.com/tentwentyfour/nextcloud-link/HEAD/cloud.png" alt="" />
+        <div class="signinbox">
+          <div class="signbox-item">
+            <p class="stm1">
+              All your file in one secure location, accessible anywhere.
+            </p>
+            <p class="stm2">
+              Fylo stores your most important file in one secure location. Access
+              them whenever you need, share and collaborate wuth your friends,
+              family and co-workers
+            </p>
+            <form action="" method="post" class="emailreg">
+              <input type="email" name="youremail" placeholder="Enter your email..." id="youremail"/>
+              <button type="submit">Get Started</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="top-curve">
+
+      </div>
+      <div class="block2">
+          <img src="aboutimg.jpg" alt="" />
+        <div class="about">
+          <div class="aboutbox">
+            <p class="quote">Stay productive, whenever you are</p>
+            <p class="info">
+              Never let location be an issue when accessing your files. Fylo has
+              ou covereed for all of your file storages needs.
+            </p>
+            <p class="info">
+              Securely share files and folders with friends, family and
+              colleagues for live collaboration. No email attacments required!
+            </p>
+            <a href="" class="aboutlink"> See how Fylo works </a>
+            <div class="testimonial-card">
+              <p class="testimonial-quote">
+                <p class="quot">“</p>
+                <p class="testimonial-post">
+                  Fylo has improved our team productivity by an order of
+                  magnitude. Since making the switch our team has become a
+                  well-oiled collaboration machine.
+                </p>
+                
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmBevB1Um_e227YgOaECsYphIKDjF-c_XVdXWKZWf39g&amp;s"
+                  alt="Profile Picture"
+                />
+                <div>
+                  <p>Kyle Burton</p>
+                  <span>Founder & CEO, Huddle</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="get">
+        <div class="get-early">
+          <span class="get-early-access">
+            <p class="title">
+              Get early access today
+            </p>
+            <p class="statement">
+              It only takes a minute to sign up and our free starter tier is extremely generous. If only you have questions, our support team would be happy to help you
+            </p>
+          </span>
+    
+        </div>
+          <form action="" method="post">
+            <input type="email" name="" id="" placeholder="emailexample.com">
+            <button type="submit">Get Started for Free</button>
+          </form>
+      </div>
+      <div class="footer">
+        <div class="items ">
+          <div class="items-block item1">
+            <div style="display: flex; font-size:50px"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR93M5D2lgHTYkXJy1obYwD49krMWHk_s79yiAgjt4Jq0B0JBr8" alt="" /><p>Fylo</p></div>
+            <div class="icon1 icon-phone">
+              <p class="contents phone">
+                Phone:+1-543-123-4567
+              </p>
+            </div>
+            <div class="icon1 icon-email">
+              <p class="contents email">
+                example@fylo.com
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="items-block item2">
+          <a href="" class="contents">About Us</a>
+          <a href="" class="contents">Jobs</a>
+          <a href="" class="contents">Press</a>
+          <a href="" class="contents">Blog</a>
+        </div>
+        <div class="items-block item3">
+         <a href="" class="contents">Contacts Us</a>
+         <a href="" class="contents">Terms</a>
+         <a href="" class="contents">Privacy</a>
+        </div>
+        <div class="items-block item4">
+          <div class="icon-container">
+            <a href="#" class="icon">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="icon">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
